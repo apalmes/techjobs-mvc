@@ -28,7 +28,7 @@
 
         <p>
             <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
+            <input type="text" name="searchTerm" id="searchTerm" th:value="${#httpServletRequest.getParameter('searchTerm')}" />
         </p>
 
         <input type="submit" value="Search" />
@@ -37,6 +37,9 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+    <div th:if="${jobs}">
+    <div th:replace="fragments :: job-results"></div>
+    </div>
 
 </div>
 
